@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin-panel
+Disallow: /application/
+Disallow: /vendor/
+
+Sitemap: https://sidvvi.com/sitemap.xml

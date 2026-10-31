@@ -1,0 +1,17 @@
+---
+description: Seguridad, autenticación y roles
+alwaysApply: true
+---
+
+# Seguridad
+
+- Contraseñas con `password_hash()` / `password_verify()` (bcrypt). Nunca MD5/SHA1.
+- El login vive en `https://sidvvi.com/admin-panel`. Sin sesión, toda ruta `/admin-panel/*` redirige ahí (guardando la URL de retorno). Agregar `<meta name="robots" content="noindex,nofollow">` en el panel y `Disallow: /admin-panel` en `robots.txt`.
+- Login del admin con límite de intentos (5 intentos → bloqueo 15 min, tabla `login_attempts`).
+- Sesiones de CI en base de datos (`ci_sessions`), `sess_regenerate_destroy`, cookies `httponly` y `secure` en producción.
+- Roles: `superadmin` (todo), `editor` (contenido), `viewer` (solo lectura). Se validan con `$min_role`, `$edit_role` y `require_role()` en `Admin_Controller`.
+- CSRF activo; Ajax envía el token en cada petición.
+- Formularios públicos: honeypot (`website`) + límite de 3 envíos/hora por IP (contacto). reCAPTCHA v3 opcional en fase 8.
+- Subidas: whitelist de extensiones (jpg, png, webp, pdf), tamaño máximo configurable, nunca ejecutar archivos de `uploads/` (agregar `.htaccess` con `php_flag engine off`).
+- `ENVIRONMENT` = `production` en el servidor: sin errores visibles, logs en `application/logs/`.
+- Bitácora de acciones del admin en `audit_logs` (usuario, acción, tabla, id, fecha, IP).

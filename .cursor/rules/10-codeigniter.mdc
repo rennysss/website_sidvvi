@@ -1,0 +1,30 @@
+---
+description: Convenciones de CodeIgniter 3 en SIDVVI
+globs: application/**/*.php
+alwaysApply: false
+---
+
+# CodeIgniter 3 — Convenciones
+
+## Controladores
+- Públicos: extienden `Public_Controller`. Renderiza con `$this->render('vista', $data, ['title' => ..., 'crumbs' => [['Texto', 'url'|NULL]]])`.
+  SEO con `$this->seo->set($titulo, $descripcion, $imagen)` y `$this->seo->add_jsonld([...])`. Para 404 usa `return $this->not_found();` (no `show_404()`).
+- Panel: extienden `Admin_Controller` (exige login). Rol mínimo con `protected $min_role = 'viewer'|'editor'|'superadmin'`; dentro de métodos `$this->require_role('editor')`.
+- CRUD del panel: **extiende `Admin_Crud_Controller`** y declara `$table, $route, $title, $singular, $icon, $fields, $order_by, $search_fields`. Tipos de campo: text, email, url, number, textarea, html, image, file, select (options|source), checkbox, date, datetime, password, icon, readonly. Hooks: `before_save`, `after_save`, `form_extra`, `list_query`.
+- El login del panel es `controllers/admin/Access.php` (no lo llames Auth: choca con la librería `Auth`).
+
+## Modelos y BD
+- `MY_Model` (get, get_by, get_all, count, insert, update, delete con soft delete, unique_slug). Query Builder siempre; nunca SQL concatenado con datos del usuario.
+- Fechas: PHP y MySQL usan `APP_TIMEZONE` (America/Mexico_City). Usa `date('Y-m-d H:i:s')` de PHP para comparar.
+
+## Vistas
+- Escapa todo con `e()`. HTML del editor (campos `html`) se imprime sin escapar solo porque lo capturan usuarios del panel.
+- Encabezados de sección con `section_title([...])` (no `load->view` directo: CI conserva variables entre vistas).
+- Recortar texto: `str_limit($txt, 120)`. Fechas: `fecha_es()`, `rango_fechas_es()`. Imágenes: `img_url($ruta, $fallback)`. Enlaces guardados en BD: `link_url()`.
+
+## Ajax
+- Respuesta estándar: `json_response($ok, $mensaje, $data, $status)` → `{ok, message, data, csrf}`. El JS actualiza el token CSRF con `csrf`.
+- Formularios públicos con clase `.ajax-form` ya funcionan con `assets/js/app.js` (errores por campo en `.invalid-feedback`).
+
+## Configuración
+- Valores sensibles en `.env` (leído en `index.php`, función `env()`). Valores editables por el cliente en la tabla `settings` (`setting('clave')`).

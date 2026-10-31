@@ -1,0 +1,14 @@
+---
+description: Contexto general del proyecto SIDVVI
+alwaysApply: true
+---
+
+# Proyecto SIDVVI
+
+- Fuente de verdad: `AGENTS.md`. Arquitectura real: `docs/02-arquitectura.md`. Diseño: `docs/07-guia-de-diseno.md`.
+- Sitio: https://sidvvi.com · Panel: https://sidvvi.com/admin-panel (enlaces con `admin_url()`).
+- Stack fijo: CodeIgniter 3.1.13 + PHP 8.1 + MySQL + **Bootstrap 4.6** + jQuery. No migrar a CI4, Laravel ni Bootstrap 5.
+- La base ya funciona con datos dummy: extiende el código existente, no lo reescribas.
+- Trabaja por fases (`docs/04-plan-de-trabajo.md`). No implementes funcionalidades fuera de la cotización.
+- Textos visibles en español de México. Código (variables, funciones, tablas) en inglés.
+- Al terminar: archivos creados/modificados, cómo probar, pendientes.

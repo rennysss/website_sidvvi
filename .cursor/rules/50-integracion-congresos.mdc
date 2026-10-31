@@ -1,0 +1,12 @@
+---
+description: Integración con el subsistema de Congresos existente
+globs: application/**/*ongress*, application/controllers/Certificates.php, application/views/public/certificates.php
+alwaysApply: false
+---
+
+# Integración con el subsistema de Congresos
+
+- El subsistema (ya hecho en otro proyecto) crea congresos, registra asistentes y emite constancias. **Este sitio no reimplementa nada de eso.**
+- `Congress_model` es de solo lectura y toma tabla/columnas de `application/config/congress.php`. Hoy apunta a la tabla demo `cg_congresses`.
+- Botones «Registrarme» y «Constancias» usan `registration_url` / `certificates_url`; si vienen vacíos se arman con `CONGRESS_APP_URL` del `.env` (`.../registro/{slug}`, `.../constancias/{slug}`).
+- Antes de integrar: pide el esquema real (`SHOW CREATE TABLE`) y la URL del subsistema. Sigue `prompts/fase-7-congresos.md`.

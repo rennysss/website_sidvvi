@@ -1,0 +1,17 @@
+---
+description: Frontend, diseño, PWA y SEO
+globs: application/views/**/*.php, assets/**/*.{css,js}
+alwaysApply: false
+---
+
+# Frontend
+
+- **Bootstrap 4.6.2** (clases BS4: `ml-*`, `mr-*`, `custom-select`, `custom-control`, `data-toggle`). NO usar clases de BS5 (`ms-*`, `form-select`, `data-bs-*`).
+- jQuery 3.7. JS del sitio en `assets/js/app.js`, del panel en `assets/js/admin.js`.
+- Estilos propios en `assets/css/sidvvi.css` usando las variables `--sv-*`. Blanco predominante; azul `--sv-primary`; rojo `--sv-accent` solo para acentos.
+- Reutiliza los parciales: `card_article`, `card_congress`, `card_board`, `stats`, `cta_membership`, `page_header`, `social_icons`.
+- Acomodo según `docs/07-guia-de-diseno.md` (inspirado en Cityvile). Mobile-first; revisar 390 / 768 / 1024 / 1366 px y que no haya scroll horizontal.
+- Imágenes con `alt`, `width`/`height` y `loading="lazy"` (excepto la primera del hero).
+- Librerías locales en `assets/vendor/`; no uses CDNs.
+- PWA: `manifest.json` + `service-worker.js` (no cachea `/admin-panel`). Si cambias CSS/JS sube la versión `?v=` y `VERSION` en el SW.
+- SEO: un solo `<h1>` por página (lo pone el hero o `page_header`), `Seo` genera title/description/OG/JSON-LD, sitemap dinámico.

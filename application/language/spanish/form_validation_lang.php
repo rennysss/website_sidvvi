@@ -1,0 +1,33 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['form_validation_required']              = 'El campo {field} es obligatorio.';
+$lang['form_validation_isset']                 = 'El campo {field} debe tener un valor.';
+$lang['form_validation_valid_email']           = 'El campo {field} debe contener un correo válido.';
+$lang['form_validation_valid_emails']          = 'El campo {field} debe contener correos válidos.';
+$lang['form_validation_valid_url']             = 'El campo {field} debe contener una URL válida.';
+$lang['form_validation_valid_ip']              = 'El campo {field} debe contener una IP válida.';
+$lang['form_validation_valid_base64']          = 'El campo {field} debe contener Base64 válido.';
+$lang['form_validation_min_length']            = 'El campo {field} debe tener al menos {param} caracteres.';
+$lang['form_validation_max_length']            = 'El campo {field} no puede exceder {param} caracteres.';
+$lang['form_validation_exact_length']          = 'El campo {field} debe tener exactamente {param} caracteres.';
+$lang['form_validation_alpha']                 = 'El campo {field} solo puede contener letras.';
+$lang['form_validation_alpha_numeric']         = 'El campo {field} solo puede contener letras y números.';
+$lang['form_validation_alpha_numeric_spaces']  = 'El campo {field} solo puede contener letras, números y espacios.';
+$lang['form_validation_alpha_dash']            = 'El campo {field} solo puede contener letras, números, guiones y guiones bajos.';
+$lang['form_validation_numeric']               = 'El campo {field} debe ser numérico.';
+$lang['form_validation_is_numeric']            = 'El campo {field} debe ser numérico.';
+$lang['form_validation_integer']               = 'El campo {field} debe ser un número entero.';
+$lang['form_validation_regex_match']           = 'El campo {field} no tiene el formato correcto.';
+$lang['form_validation_matches']               = 'El campo {field} no coincide con {param}.';
+$lang['form_validation_differs']               = 'El campo {field} debe ser distinto de {param}.';
+$lang['form_validation_is_unique']             = 'El valor de {field} ya está registrado.';
+$lang['form_validation_is_natural']            = 'El campo {field} solo puede contener dígitos.';
+$lang['form_validation_is_natural_no_zero']    = 'El campo {field} solo puede contener dígitos y debe ser mayor a cero.';
+$lang['form_validation_decimal']               = 'El campo {field} debe ser un número decimal.';
+$lang['form_validation_less_than']             = 'El campo {field} debe ser menor que {param}.';
+$lang['form_validation_less_than_equal_to']    = 'El campo {field} debe ser menor o igual a {param}.';
+$lang['form_validation_greater_than']          = 'El campo {field} debe ser mayor que {param}.';
+$lang['form_validation_greater_than_equal_to'] = 'El campo {field} debe ser mayor o igual a {param}.';
+$lang['form_validation_error_message_not_set'] = 'No hay mensaje de error para el campo {field}.';
+$lang['form_validation_in_list']               = 'El campo {field} debe ser uno de: {param}.';

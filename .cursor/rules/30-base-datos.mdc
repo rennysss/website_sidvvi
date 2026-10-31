@@ -1,0 +1,14 @@
+---
+description: Convenciones de base de datos MySQL
+globs: database/**/*.sql, application/models/**/*.php
+alwaysApply: false
+---
+
+# Base de datos
+
+- Esquema y datos dummy en **`database/sidvvi.sql`** (fuente de verdad). Si cambias el esquema, actualízalo ahí.
+- InnoDB, `utf8mb4_unicode_ci`. Tablas en inglés, plural, snake_case.
+- Tablas de contenido: `created_at`, `updated_at`; las que se borran lógicamente: `deleted_at` + `$soft_delete = TRUE`.
+- Publicables: `status ENUM('draft','published','archived')` + `published_at`. Con URL: `slug UNIQUE`.
+- Roles de usuarios: `users.role ENUM('superadmin','editor','viewer')`.
+- Tablas del subsistema de Congresos: solo lectura vía `config/congress.php`. `cg_congresses` es una tabla DEMO.

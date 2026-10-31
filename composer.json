@@ -1,0 +1,17 @@
+{
+    "name": "mandala/sidvvi",
+    "description": "SIDVVI — Sitio web y panel de control (CodeIgniter 3)",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.4",
+        "codeigniter/framework": "3.1.13",
+        "tecnickcom/tcpdf": "^6.7",
+        "chillerlan/php-qrcode": "^4.3",
+        "minishlink/web-push": "^9.0",
+        "lbuchs/webauthn": "^2.2"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
